@@ -89,6 +89,10 @@ LICENSE.html
 LICENSE.txt
 LICENSE_EE*
 mage
+
+# mine
+media/
+
 media/customer/
 media/dhl/
 media/downloadable/
