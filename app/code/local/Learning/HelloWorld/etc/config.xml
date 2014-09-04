@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <Learning_HelloWorld>
+            <version>1.0.0</version>
+        </Learning_HelloWorld>
+    </modules>
+    <frontend>
+        <routers>
+            <learning_helloworld>
+                <use>standard</use>
+                <args>
+                    <module>Learning_HelloWorld</module>
+                    <frontName>learning-helloworld</frontName>
+                </args>
+            </learning_helloworld>
+        </routers>
+    </frontend>
+</config>
