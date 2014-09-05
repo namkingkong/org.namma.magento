@@ -1,0 +1,7 @@
+body {
+    background-color: #3366cc;
+    background-image: url('../images/media/wallpaper.png');
+    background-attachment: fixed;
+    background-size: contain;
+    color: white;
+}
