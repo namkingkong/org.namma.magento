@@ -1,0 +1,23 @@
+<div id="sm-megamenu">
+	<ul id="sm-megamenu-topbar" class="clearfix">
+		<li>
+			<span class="sm-megamenu-label">
+				Categories
+			</span>
+			<div class="sm-megamenu-panel sm-megamenu-category-tree">
+				<?php echo $this->getCategoriesHtml() ?>
+			</div>
+		</li>
+
+		<?php foreach ($this->getMenuItems() as $item) : ?>
+			<li>
+				<span class="sm-megamenu-label">
+					<?= $item->getName() ?>
+				</span>
+				<div class="sm-megamenu-panel">
+					<?= Mage::getModel('cms/block')->load($item->getBlockId())->getContent() ?>
+				</div>
+			</li>
+		<?php endforeach; ?>
+	</ul>
+</div>

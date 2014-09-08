@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<layout>
+    <default>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>SM/bootstrap/css/bootstrap.min.css</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>SM/bootstrap/js/bootstrap.min.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>SM/css/MegaMenu.css</name>
+            </action>
+        </reference>
+        <reference name="top.menu">
+            <block type="sm_megamenu/MegaMenu"
+                   name="sm_megamenu"
+                   template="SM/MegaMenu.phtml"/>
+        </reference>
+    </default>
+</layout>
