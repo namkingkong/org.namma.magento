@@ -92,5 +92,34 @@
                 </sm_megamenu>
             </updates>
         </layout>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <sm_megamenu translate="title">
+                                            <title>SM Mega Menu</title>
+                                        </sm_megamenu>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
     </adminhtml>
+    <default>
+        <sm_megamenu>
+            <remove_default_nav>
+                <enabled>1</enabled>
+            </remove_default_nav>
+        </sm_megamenu>
+    </default>
 </config>

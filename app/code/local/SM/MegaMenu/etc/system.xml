@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<config>
+    <!--
+    Create a new table called "SM Modules"
+    -->
+    <tabs>
+        <sm_modules translate="label">
+            <label>SM Modules</label>
+            <sort_order>1</sort_order>
+        </sm_modules>
+    </tabs>
+    <!--
+    Create "SM Mega Menu" config section in "SM Modules" tab
+    -->
+    <sections>
+        <sm_megamenu translate="label">
+            <label>SM Mega Menu</label>
+            <tab>sm_modules</tab>
+            <frontend_type>text</frontend_type>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <!--
+            Create a config group named "Remove default navigation bar"
+            -->
+            <groups>
+                <remove_default_nav translate="label">
+                    <label>Remove default navigation bar</label>
+                    <frontend_type>text</frontend_type>
+                    <show_in_default>1</show_in_default>
+                    <show_in_store>1</show_in_store>
+                    <show_in_website>1</show_in_website>
+                    <!--
+                    Create a field named "Enabled" for this config group
+                    -->
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enabled</label>
+                            <comment>
+                                <![CDATA[<span class="notice">Nothing to comment</span>]]>
+                            </comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                        </enabled>
+                    </fields>
+                </remove_default_nav>
+            </groups>
+        </sm_megamenu>
+    </sections>
+</config>

@@ -16,10 +16,29 @@
                 <name>SM/css/MegaMenu.css</name>
             </action>
         </reference>
-        <reference name="top.menu">
+
+        <reference name="header">
             <block type="sm_megamenu/MegaMenu"
                    name="sm_megamenu"
                    template="SM/MegaMenu.phtml"/>
+
+            <action method="unsetChild" ifconfig="sm_megamenu/remove_default_nav/enabled">
+                <name>top.menu</name>
+            </action>
+            <action method="setChild" ifconfig="sm_megamenu/remove_default_nav/enabled">
+                <alias>topMenu</alias>
+                <block>sm_megamenu</block>
+            </action>
         </reference>
+
+        <!--<reference name="top.menu">-->
+            <!--&lt;!&ndash;<action method="unsetChild" ifconfig="sm_megamenu/remove_default_nav/enabled">&ndash;&gt;-->
+                <!--&lt;!&ndash;<name>catalog.topnav</name>&ndash;&gt;-->
+            <!--&lt;!&ndash;</action>&ndash;&gt;-->
+            <!--&lt;!&ndash;<action method="setChild" ifconfig="sm_megamenu/remove_default_nav/enabled">&ndash;&gt;-->
+                <!--&lt;!&ndash;<alias>sm_megamenu</alias>&ndash;&gt;-->
+                <!--&lt;!&ndash;<block>sm_megamenu</block>&ndash;&gt;-->
+            <!--&lt;!&ndash;</action>&ndash;&gt;-->
+        <!--</reference>-->
     </default>
 </layout>
