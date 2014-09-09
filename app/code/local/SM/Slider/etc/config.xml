@@ -54,4 +54,54 @@
             </sm_slider_setup>
         </resources>
     </global>
+    <admin>
+        <routers>
+            <sm_slider>
+                <use>admin</use>
+                <args>
+                    <module>SM_Slider_Adminhtml</module>
+                    <frontName>sm-slider-admin</frontName>
+                </args>
+            </sm_slider>
+        </routers>
+    </admin>
+    <adminhtml>
+        <menu>
+            <sm_module>
+                <children>
+                    <sm_slider translate="title" module="sm_slider">
+                        <title>Slider</title>
+                        <action>sm-slider-admin/index/index</action>
+                    </sm_slider>
+                </children>
+            </sm_module>
+        </menu>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <sm_slider translate="title" module="sm_slider">
+                                            <title>SM Slider</title>
+                                            <sort_order>9999</sort_order>
+                                        </sm_slider>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <layout>
+            <updates>
+                <sm_slider>
+                    <file>SM/Slider.xml</file>
+                </sm_slider>
+            </updates>
+        </layout>
+    </adminhtml>
 </config>
