@@ -34,8 +34,12 @@
             <sm_slider_mysql4>
                 <class>SM_Slider_Model_Mysql4</class>
                 <entities>
-                    <slider>sm_slider_sliders</slider>
-                    <image>sm_slider_images</image>
+                    <slider>
+                        <table>sm_slider_sliders</table>
+                    </slider>
+                    <image>
+                        <table>sm_slider_images</table>
+                    </image>
                 </entities>
             </sm_slider_mysql4>
         </models>
