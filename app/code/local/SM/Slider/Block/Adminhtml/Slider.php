@@ -8,15 +8,22 @@
 class SM_Slider_Block_Adminhtml_Slider extends Mage_Adminhtml_Block_Widget_Grid_Container {
 
 	public function __construct() {
-		$helper = Mage::getHelper('sm_slider');
-
-		$this->_controller = 'adminhtml_slider';
+		/*
+		 * This is the first half part of Block URI
+		 */
 		$this->_blockGroup = 'sm_slider';
+		/*
+		 * This is the second half part of Block URI
+		 * ("controller" here does not mean a MVC Controller,
+		 * it's Block Controller, or we can call a Container")
+		 */
+		$this->_controller = 'adminhtml_slider';
 
-		$this->_headerText = $helper->__('Manage Slider');
-		$this->_addButtonLabel = $helper->__('Add New Slider');
+		// No need to call Helper
+		$this->_headerText = $this->__('Manage Slider');
+		$this->_addButtonLabel = $this->__('Add New Slider');
 
-		// Call accessor's constructor
+		// Call predecessor's constructor
 		parent::__construct();
 	}
 
