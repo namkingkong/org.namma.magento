@@ -37,7 +37,7 @@ class SM_Slider_Adminhtml_SM_SliderController extends Mage_Adminhtml_Controller_
 		// Get model ID if available
 		$id = $this->getRequest()->getParam('id');
 
-		$model = Mage::getModel('sm_slider/slider');http://www.pierrefay.com/
+		$model = Mage::getModel('sm_slider/slider');
 
 		if ($id) {
 			// Load model entity
@@ -64,13 +64,23 @@ class SM_Slider_Adminhtml_SM_SliderController extends Mage_Adminhtml_Controller_
 			->_addBreadcrumb(
 				$id ? $this->__('Edit Slider') : $this->__('New Slider'),
 				$id ? $this->__('Edit Slider') : $this->__('New Slider')
-			)
-			->_addContent(
-					$this->getLayout()
-						->createBlock('sm_slider/adminhtml_slider_edit')
-						->setData('action', $this->getUrl('*/*/save'))
-			)
-			->renderLayout();
+			)->_addContent(
+				$this->getLayout()
+					->createBlock('sm_slider/adminhtml_slider_edit')
+					->setData('action', $this->getUrl('*/*/save'))
+			);
+
+		/*
+		 * If this is edit page, show image list
+		 */
+		if ($id) {
+			$this->_addContent(
+				$this->getLayout()
+					->createBlock('sm_slider/adminhtml_image')
+			);
+		}
+
+		$this->renderLayout();
 	}
 
 	public function saveAction()

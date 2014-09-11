@@ -28,7 +28,7 @@ $this->run("
 		`is_active` BOOLEAN NOT NULL DEFAULT TRUE,
 		PRIMARY KEY (`id`),
 		FOREIGN KEY (`slider_id`)
-			REFERENCES `slider`(`id`)
+			REFERENCES `{$sliderTableName}`(`id`)
 			ON DELETE CASCADE
 			ON UPDATE CASCADE
 	);

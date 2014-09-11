@@ -39,15 +39,6 @@ class SM_Slider_Block_Adminhtml_Slider_Grid extends Mage_Adminhtml_Block_Widget_
 	 * Define the grid's columns to be shown
 	 */
 	protected function _prepareColumns() {
-//		$this->addColumn(
-//			'sm_slider_id',
-//			array(
-//				'type'      => 'checkbox',
-//				'index'     => 'id',
-//				'field_name'=> 'id'
-//			)
-//		);
-
 		$this->addColumn(
 			'sm_slider_name',
 			array(
