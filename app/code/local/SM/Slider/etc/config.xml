@@ -53,6 +53,16 @@
                 </connection>
             </sm_slider_setup>
         </resources>
+        <events>
+            <sm_slider_slider_save_before>
+                <observers>
+                    <sm_slider_slider_observer>
+                        <class>SM_Slider_Model_Observer_SliderObserver</class>
+                        <method>sliderBeforeSave</method>
+                    </sm_slider_slider_observer>
+                </observers>
+            </sm_slider_slider_save_before>
+        </events>
     </global>
     <admin>
         <routers>

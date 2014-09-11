@@ -90,39 +90,11 @@ class SM_Slider_Adminhtml_SM_SliderController extends Mage_Adminhtml_Controller_
 			$model->setData($postData);
 
 			$adminHtmlSession = Mage::getSingleton('adminhtml/session');
-			$connection = $this->_getWriteConnection();
 
 			try
 			{
-				$connection->beginTransaction();
-
-				{
-					/*
-					 * There is only 1 slider may be active.
-					 * So if this slider is set to be active,
-					 * find the currently active one to de-activate it before save this.
-					 */
-					if ($postData['is_active']) {
-						// Execute update query
-						$connection->update(
-							// This is table name
-							Mage::getSingleton('core/resource')->getTableName('sm_slider/slider'),
-							// This is changes you wanna make
-							array(
-								'is_active' => false
-							),
-							// This is the record-seeking condition (aka WHERE) =))
-							array(
-								'is_active' => true
-							)
-						);
-					}
-
-					// Save this entity
-					$model->save();
-				}
-
-				$connection->commit();
+				// Save this entity
+				$model->save();
 
 				$adminHtmlSession->addSuccess($this->__('The slider has bean saved'));
 
@@ -130,12 +102,10 @@ class SM_Slider_Adminhtml_SM_SliderController extends Mage_Adminhtml_Controller_
 			}
 			catch (Mage_Core_Exception $ex)
 			{
-				$connection->rollback();
 				$adminHtmlSession->addError($ex->getMessage());
 			}
 			catch (Mage_Core_Exception $ex)
 			{
-				$connection->rollback();
 				$adminHtmlSession->addError($this->__('An error occured while saving the slider'));
 			}
 

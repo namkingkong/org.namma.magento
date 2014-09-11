@@ -31,10 +31,23 @@ class SM_Slider_Block_Adminhtml_Slider_Grid extends Mage_Adminhtml_Block_Widget_
 		return parent::_prepareCollection();
 	}
 
+	protected function _prepareMassaction() {
+		// Code here
+	}
+
 	/**
 	 * Define the grid's columns to be shown
 	 */
 	protected function _prepareColumns() {
+//		$this->addColumn(
+//			'sm_slider_id',
+//			array(
+//				'type'      => 'checkbox',
+//				'index'     => 'id',
+//				'field_name'=> 'id'
+//			)
+//		);
+
 		$this->addColumn(
 			'sm_slider_name',
 			array(
@@ -44,7 +57,9 @@ class SM_Slider_Block_Adminhtml_Slider_Grid extends Mage_Adminhtml_Block_Widget_
 				// This is the name of column in the database
 				'index'     => 'name'
 			)
-		)->addColumn(
+		);
+
+		$this->addColumn(
 			'sm_slider_is_active',
 			array(
 				'header'    => $this->__('Is Active'),
