@@ -55,7 +55,7 @@ class SM_Slider_Block_Adminhtml_Slider_Edit_Form extends Mage_Adminhtml_Block_Wi
 			'title'     => 'Is Active',
 			'required'  => false,
 			'onclick'   => 'this.value = this.checked ? 1 : 0;',
-			'checked'   => true
+			'checked'   => 'checked'
 		));
 
 		$form->setValues($model->getData());
