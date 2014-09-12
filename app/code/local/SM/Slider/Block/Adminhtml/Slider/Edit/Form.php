@@ -23,8 +23,7 @@ class SM_Slider_Block_Adminhtml_Slider_Edit_Form extends Mage_Adminhtml_Block_Wi
 		$model = Mage::registry('sm_slider_slider');
 
 		$form = new Varien_Data_Form(array(
-//			'id'        => 'sm_slider_slider_form',
-			'id'        => 'edit_form',
+			'id'        => 'sm_slider_slider_form',
 			'action'    => $this->getUrl('*/*/save', array('id', $this->getRequest()->getParam('id'))),
 			'method'    => 'POST'
 		));
@@ -33,7 +32,6 @@ class SM_Slider_Block_Adminhtml_Slider_Edit_Form extends Mage_Adminhtml_Block_Wi
 			'base_field_set',
 			array(
 				'legend'    => Mage::helper('sm_slider')->__('Slider Information'),
-				'class'     => 'fieldset-wide'
 			)
 		);
 
@@ -50,7 +48,15 @@ class SM_Slider_Block_Adminhtml_Slider_Edit_Form extends Mage_Adminhtml_Block_Wi
 		));
 
 		$fieldset->addField('type', 'select', array(
-			
+			'name'      => 'type',
+			'label'     => $this->__('Slider Type'),
+			'title'     => $this->__('Slider Type'),
+			'required'  => true,
+			'value'     => 'default',
+			'values'    => array(
+				'default'   => 'default',
+				'vertical'  => 'vertical'
+			)
 		));
 
 		$fieldset->addField('is_active', 'checkbox', array(

@@ -31,7 +31,7 @@ class SM_Slider_Block_Adminhtml_Slider_Edit extends Mage_Adminhtml_Block_Widget_
 			return $this->__('Edit Slider');
 		}
 		else {
-			return $this->__('Create New Slider');
+			return $this->__('New Slider');
 		}
 	}
 

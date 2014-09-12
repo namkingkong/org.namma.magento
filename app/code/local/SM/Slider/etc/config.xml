@@ -54,6 +54,7 @@
             </sm_slider_setup>
         </resources>
         <events>
+            <!-- Slider Before Save -->
             <sm_slider_slider_save_before>
                 <observers>
                     <sm_slider_slider_observer>
@@ -62,6 +63,24 @@
                     </sm_slider_slider_observer>
                 </observers>
             </sm_slider_slider_save_before>
+            <!-- Image Before Save -->
+            <sm_slider_image_save_before>
+                <observers>
+                    <sm_slider_image_observer>
+                        <class>SM_Slider_Model_Observer_ImageObserver</class>
+                        <method>imageBeforeSave</method>
+                    </sm_slider_image_observer>
+                </observers>
+            </sm_slider_image_save_before>
+            <!-- Image After Save -->
+            <sm_slider_image_save_after>
+                <observers>
+                    <sm_slider_image_observer>
+                        <class>SM_Slider_Model_Observer_ImageObserver</class>
+                        <method>imageAfterSave</method>
+                    </sm_slider_image_observer>
+                </observers>
+            </sm_slider_image_save_after>
         </events>
     </global>
     <admin>

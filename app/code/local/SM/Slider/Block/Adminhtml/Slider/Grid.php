@@ -51,6 +51,14 @@ class SM_Slider_Block_Adminhtml_Slider_Grid extends Mage_Adminhtml_Block_Widget_
 		);
 
 		$this->addColumn(
+			'sm_slider_type',
+			array(
+				'header'    => $this->__('Slider Type'),
+				'index'     => 'type'
+			)
+		);
+
+		$this->addColumn(
 			'sm_slider_is_active',
 			array(
 				'header'    => $this->__('Is Active'),

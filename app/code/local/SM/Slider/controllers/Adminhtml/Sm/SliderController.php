@@ -75,8 +75,7 @@ class SM_Slider_Adminhtml_Sm_SliderController extends Mage_Adminhtml_Controller_
 		 */
 		if ($id) {
 			$this->_addContent(
-				$this->getLayout()
-					->createBlock('sm_slider/adminhtml_image')
+				$this->getLayout()->createBlock('sm_slider/adminhtml_image')
 			);
 		}
 
@@ -123,7 +122,7 @@ class SM_Slider_Adminhtml_Sm_SliderController extends Mage_Adminhtml_Controller_
 			 * These 2 lines of code is only executed when there is exception
 			 */
 			$adminHtmlSession->setSliderData($postData);
-			$this->_redirectPrefer();
+			$this->_redirectReferer();
 		}
 	}
 

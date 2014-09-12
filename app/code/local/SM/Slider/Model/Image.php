@@ -7,6 +7,8 @@
  */
 class SM_Slider_Model_Image extends Mage_Core_Model_Abstract {
 
+	protected $_eventPrefix = 'sm_slider_image';
+
 	protected function _construct() {
 		$this->_init('sm_slider/image');
 	}

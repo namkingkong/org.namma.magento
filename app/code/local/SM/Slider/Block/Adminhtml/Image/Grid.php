@@ -57,6 +57,6 @@ class SM_Slider_Block_Adminhtml_Image_Grid extends Mage_Adminhtml_Block_Widget_G
 	}
 
 	public function getRowUrl($row) {
-		return $this->getUrl('*/sm_sliderImage/index', array('id' => $row->getId()));
+		return $this->getUrl('*/sm_sliderImage/edit', array('id' => $row->getId()));
 	}
 }

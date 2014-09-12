@@ -20,22 +20,101 @@ class SM_Slider_Adminhtml_Sm_SliderImageController extends Mage_Adminhtml_Contro
 		return $this;
 	}
 
-	public function indexAction() {
+	public function newAction() {
+		$this->_forward('edit');
+	}
+
+	public function editAction() {
 		// Get Slider Image Controller
 		$id = $this->getRequest()->getParam('id');
 
+		$model = Mage::getModel('sm_slider/image');
+
+		// If image ID is given, load the image from DB
+		if ($id) {
+
+			$model->load($id);
+
+			/*
+			 * If the image having the ID does not exist,
+			 * return to the slider edit page
+			 */
+			if (! $model->getId()) {
+				Mage::getSingleton('adminhtml/session')->addError($this->__('The requested image is not available'));
+				return $this->_redirect('*/sm_slider/index');
+			}
+		}
+
+		// Set page title
+		$this->_title($model->getId() ?
+			$model->getName()           // If edit
+			: $this->__('New Slider')); // If new
+
+//		$data = Mage::getSingleton('adminhtml/session')->getImageData(true);
+//		if (! empty($data)) {
+//			$model->setData($data);
+//		}
+
+		// Add model to registry so that view page can spread the data on all form fields
+		Mage::register('sm_slider_image', $model);
+
 		$this->_init();
 
-		$this->getLayout()
-			->getBlock('content')
-			->append(
-				$this->getLayout()->createBlock(
-					'sm_slider/adminhtml_image_formContainer',
-					'sm_slider_image_edit'
-				)
-			);
+		$this->_addContent(
+			$this->getLayout()
+				->createBlock('sm_slider/adminhtml_image_edit')
+				->setData('action', $this->getUrl('*/*/save'))
+		);
 
 		$this->renderLayout();
+	}
+
+	public function saveAction() {
+
+		$adminHtmlSession = Mage::getSingleton('adminhtml/session');
+
+		if ($postData = $this->getRequest()->getPost()) {
+			// Analyze and set value for "is_active" field
+			if (isset($postData['is_active'])) {
+				$postData['is_active'] = true;
+			}
+			else {
+				$postData['is_active'] = false;
+			}
+
+			// Create model instance using the submitted data
+			$model = Mage::getSingleton('sm_slider/image');
+			$model->setData($postData);
+
+			// Set slider ID if given
+			if ($sliderId = $this->getRequest()->getParam('slider_id')) {
+				$model->setSliderId($sliderId);
+			}
+
+			try
+			{
+				// Save this entity
+				$model->save();
+
+				$adminHtmlSession->addSuccess($this->__('The slider has bean saved'));
+
+				return $this->_redirect('*/*');
+			}
+			catch (Mage_Core_Exception $ex)
+			{
+				$adminHtmlSession->addError($ex->getMessage());
+			}
+			catch (Mage_Core_Exception $ex)
+			{
+				$adminHtmlSession->addError($this->__('An error occured while saving the slider'));
+			}
+
+			/*
+			 * These 2 lines of code is only executed when there is exception
+			 */
+			$adminHtmlSession->setSliderData($postData);
+			$this->_redirectReferer();
+		}
 	}
 
 }
