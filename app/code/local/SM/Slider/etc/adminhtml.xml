@@ -5,7 +5,7 @@
             <children>
                 <sm_slider translate="title" module="sm_slider">
                     <title>Slider</title>
-                    <action>adminhtml/SM_Slider/index</action>
+                    <action>adminhtml/sm_slider/index</action>
                 </sm_slider>
             </children>
         </sm_module>

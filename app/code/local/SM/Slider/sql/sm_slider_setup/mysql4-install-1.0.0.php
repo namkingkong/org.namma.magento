@@ -15,17 +15,20 @@ $this->run("
 	DROP TABLE IF EXISTS `{$sliderTableName}`;
 
 	CREATE TABLE `{$sliderTableName}` (
-		`id` INT NOT NULL AUTO_INCREMENT,
-		`name` VARCHAR(128) NOT NULL,
-		`is_active` BOOLEAN NOT NULL DEFAULT TRUE,
+		`id`		INT				NOT NULL AUTO_INCREMENT,
+		`name`		VARCHAR(128)	NOT NULL,
+		`type`		VARCHAR(32)	NOT NULL,
+		`is_active`	BOOLEAN 		NOT NULL DEFAULT TRUE,
 		PRIMARY KEY (`id`)
 	);
 
 	CREATE TABLE `{$imageTableName}` (
-		`id` INT NOT NULL AUTO_INCREMENT,
-		`filename` TEXT NOT NULL,
-		`slider_id` INT NOT NULL,
-		`is_active` BOOLEAN NOT NULL DEFAULT TRUE,
+		`id`		INT		NOT NULL AUTO_INCREMENT,
+		`filename`	TEXT	NOT NULL,
+		`title`		TEXT	NOT NULL,
+		`content`	TEXT	NOT NULL,
+		`slider_id`	INT		NOT NULL,
+		`is_active`	BOOLEAN NOT NULL DEFAULT TRUE,
 		PRIMARY KEY (`id`),
 		FOREIGN KEY (`slider_id`)
 			REFERENCES `{$sliderTableName}`(`id`)

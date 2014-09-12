@@ -5,7 +5,7 @@
  * Date: 9/9/14
  * Time: 4:55 PM
  */
-class SM_Slider_Adminhtml_SM_SliderController extends Mage_Adminhtml_Controller_Action {
+class SM_Slider_Adminhtml_Sm_SliderController extends Mage_Adminhtml_Controller_Action {
 
 	protected function _init() {
 		$this->loadLayout()
