@@ -24,6 +24,7 @@ class SM_Slider_Block_Adminhtml_Slider_Edit_Form extends Mage_Adminhtml_Block_Wi
 
 		$form = new Varien_Data_Form(array(
 			'id'        => 'sm_slider_slider_form',
+			'name'      => 'editForm',
 			'action'    => $this->getUrl('*/*/save', array('id', $this->getRequest()->getParam('id'))),
 			'method'    => 'POST'
 		));

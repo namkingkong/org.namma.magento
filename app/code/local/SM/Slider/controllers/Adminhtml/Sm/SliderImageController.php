@@ -19,7 +19,7 @@ class SM_Slider_Adminhtml_Sm_SliderImageController extends Mage_Adminhtml_Contro
 
 		return $this;
 	}
-
+	
 	public function newAction() {
 		$this->_forward('edit');
 	}
@@ -61,9 +61,7 @@ class SM_Slider_Adminhtml_Sm_SliderImageController extends Mage_Adminhtml_Contro
 		$this->_init();
 
 		$this->_addContent(
-			$this->getLayout()
-				->createBlock('sm_slider/adminhtml_image_edit')
-				->setData('action', $this->getUrl('*/*/save'))
+			$this->getLayout()->createBlock('sm_slider/adminhtml_image_edit')
 		);
 
 		$this->renderLayout();
@@ -98,7 +96,8 @@ class SM_Slider_Adminhtml_Sm_SliderImageController extends Mage_Adminhtml_Contro
 
 				$adminHtmlSession->addSuccess($this->__('The slider has bean saved'));
 
-				return $this->_redirect('*/*');
+				// After successfully saving the image, return to slider edit page
+				return $this->_redirect("*/sm_slider/edit/id/{$sliderId}");
 			}
 			catch (Mage_Core_Exception $ex)
 			{
@@ -117,4 +116,22 @@ class SM_Slider_Adminhtml_Sm_SliderImageController extends Mage_Adminhtml_Contro
 		}
 	}
 
+	public function deleteAction() {
+		$id = $this->getRequest()->getParam('id');
+
+		$image = Mage::getModel('sm_slider/image')->load($id);
+
+		// If the image is successfully loaded with the given ID
+		if ($image->getId()) {
+			// Remove this image record from DB
+			$image->delete();
+			// Redirect to slider page
+			return $this->_redirect("*/sm_slider/edit/id/{$image->getSliderId()}");
+		}
+		// Else, if failed to load, show error
+		else {
+			Mage::getSingleton('adminhtml/session')->addError("Failed to load image");
+			$this->_init()->renderLayout();
+		}
+	}
 }

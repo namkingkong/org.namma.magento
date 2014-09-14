@@ -17,10 +17,24 @@ class SM_Slider_Block_Adminhtml_Image_Edit_Form extends Mage_Adminhtml_Block_Wid
 	protected function _prepareForm() {
 		$model = Mage::registry('sm_slider_image');
 
+		// Build save button url
+//		$saveBtnUrl = $this->getUrl('*/*/save');
+//		if ($sliderId = $this->getRequest()->getParam('slider_id')) {
+//			$saveBtnUrl .= "/slider_id/{$sliderId}";
+//		}
+		$sliderId = $this->getRequest()->getParam('slider_id');
+
 		$form = new Varien_Data_Form(array(
 			'id'    => 'sm_slider_image_form',
-			'action'=> $this->getUrl('*/*/save', array('id' => $this->getRequest()->getParam('id'))),
-			'method'=> 'POST'
+			'name'  => 'editForm',
+			'action'=> $this->getUrl('*/*/save',
+				array(
+					'slider_id' => $sliderId,
+					'id'        => $this->getRequest()->getParam('id')
+				)
+			),
+			'method'=> 'POST',
+			'enctype'   => 'multipart/form-data'
 		));
 
 		$fieldset = $form->addFieldset(
@@ -31,16 +45,27 @@ class SM_Slider_Block_Adminhtml_Image_Edit_Form extends Mage_Adminhtml_Block_Wid
 			)
 		);
 
+		// If this is an existed model...
 		if ($model->getId()) {
+			// Set an hidden ID field
 			$fieldset->addField('id', 'hidden', array('name' => 'id'));
-		}
 
-		$fieldset->addField('image', 'file', array(
-			'name'      => 'image',
-			'label'     => $this->__('Image'),
-			'title'     => $this->__('Image'),
-			'required'  => true
-		));
+			// Show the uploaded image
+//			$fieldset->addField('image', 'image', array(
+//				'label'     => $this->__('Image'),
+//				'title'     => $this->__('Image'),
+//				'src'       => Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . "sm/slider/{$}"
+//			));
+		}
+		else {
+			// Set an image-uploading field instead of showing any image
+			$fieldset->addField('image', 'file', array(
+				'name'      => 'image',
+				'label'     => $this->__('Image'),
+				'title'     => $this->__('Image'),
+				'required'  => true
+			));
+		}
 
 		$fieldset->addField('title', 'text', array(
 			'name'      => 'title',

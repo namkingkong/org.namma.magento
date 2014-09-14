@@ -36,7 +36,23 @@ class SM_Slider_Block_Adminhtml_Image_Grid extends Mage_Adminhtml_Block_Widget_G
 				'header'    => $this->__('Thumbnail'),
 				'index'     => 'filename',
 				'renderer'  => new SM_Slider_Block_Adminhtml_Image_Thumbnail(),
-				'width'     => '50%'
+				'width'     => '25%'
+			)
+		);
+
+		$this->addColumn(
+			'sm_slider_image_title',
+			array(
+				'header'    => $this->__('Image Title'),
+				'index'     => 'title',
+			)
+		);
+
+		$this->addColumn(
+			'sm_slider_image_content',
+			array(
+				'header'    => $this->__('Image Content'),
+				'index'     => 'content'
 			)
 		);
 
