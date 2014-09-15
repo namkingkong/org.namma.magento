@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<layout>
+    <cms_index_index>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>SM/swiper/idangero.swiper.css</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>SM/swiper/idangero.swiper.js</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <action method="unsetChildren"></action>
+            <block type="sm_slider/slider"
+                   name="sm_slider"
+                   template="SM/Slider.phtml"/>
+        </reference>
+    </cms_index_index>
+</layout>

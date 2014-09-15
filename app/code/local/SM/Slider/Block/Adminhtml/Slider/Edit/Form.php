@@ -48,25 +48,13 @@ class SM_Slider_Block_Adminhtml_Slider_Edit_Form extends Mage_Adminhtml_Block_Wi
 			'required'  => true
 		));
 
-		$fieldset->addField('type', 'select', array(
-			'name'      => 'type',
-			'label'     => $this->__('Slider Type'),
-			'title'     => $this->__('Slider Type'),
-			'required'  => true,
-			'value'     => 'default',
-			'values'    => array(
-				'default'   => 'default',
-				'vertical'  => 'vertical'
-			)
-		));
-
 		$fieldset->addField('is_active', 'checkbox', array(
 			'name'      => 'is_active',
 			'label'     => 'Is Active',
 			'title'     => 'Is Active',
 			'required'  => false,
 			'onclick'   => 'this.value = this.checked ? 1 : 0;',
-			'checked'   => 'checked'
+			'checked'   => Mage::registry('sm_slider_slider')->getIsActive() ? true : false
 		));
 
 		$form->setValues($model->getData());

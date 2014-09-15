@@ -12,17 +12,23 @@ class SM_Slider_Model_Observer_ImageObserver {
 	/** @var Varien_File_Uploader  */
 	protected $_uploader = null;
 
+	protected $_isEdit = false;
+
 	public function __construct() {
 		$this->_imageFile = $_FILES['image'];
 
-		if (! $this->_imageFile) {
-			die('Image is required');
-		}
+		$this->_isEdit = $isEdit = Mage::app()->getRequest()->getParam('id') !== null;
 
-		$uploader = $this->_uploader = new Varien_File_Uploader('image');
-		$uploader->setAllowedExtensions(array('img', 'jpg', 'png', 'gif', 'bmp'));
-		$uploader->setAllowRenameFiles(false);
-		$uploader->setAllowCreateFolders(true);
+		if (! $isEdit) {
+			if (! $this->_imageFile) {
+				die('Image is required');
+			}
+
+			$uploader = $this->_uploader = new Varien_File_Uploader('image');
+			$uploader->setAllowedExtensions(array('img', 'jpg', 'png', 'gif', 'bmp'));
+			$uploader->setAllowRenameFiles(false);
+			$uploader->setAllowCreateFolders(true);
+		}
 	}
 
 	/**
@@ -47,12 +53,14 @@ class SM_Slider_Model_Observer_ImageObserver {
 	 * @param $observer Varien_Event_Observer
 	 */
 	public function imageAfterSave(&$observer) {
-		$image = $observer->getEvent()->getObject();
+		if (! $this->_isEdit) {
+			$image = $observer->getEvent()->getObject();
 
-		$newFilename = "{$image->getId()}_{$image->getFilename()}";
-		$dir = Mage::getBaseDir('media') . "/sm/slider/{$image->getSliderId()}";
+			$newFilename = "{$image->getId()}_{$image->getFilename()}";
+			$dir = Mage::getBaseDir('media') . "/sm/slider/{$image->getSliderId()}";
 
-		$this->_uploader->save($dir, $newFilename);
+			$this->_uploader->save($dir, $newFilename);
+		}
 	}
 
 }

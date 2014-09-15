@@ -81,7 +81,8 @@ class SM_Slider_Adminhtml_Sm_SliderImageController extends Mage_Adminhtml_Contro
 			}
 
 			// Create model instance using the submitted data
-			$model = Mage::getSingleton('sm_slider/image');
+			$id = $this->getRequest()->getParam('id');
+			$model = Mage::getSingleton('sm_slider/image')->load($id);
 			$model->setData($postData);
 
 			// Set slider ID if given
@@ -97,7 +98,7 @@ class SM_Slider_Adminhtml_Sm_SliderImageController extends Mage_Adminhtml_Contro
 				$adminHtmlSession->addSuccess($this->__('The slider has bean saved'));
 
 				// After successfully saving the image, return to slider edit page
-				return $this->_redirect("*/sm_slider/edit/id/{$sliderId}");
+				return $this->_redirect("*/sm_slider/edit", array('id' => $model->getSliderId()));
 			}
 			catch (Mage_Core_Exception $ex)
 			{
@@ -133,5 +134,89 @@ class SM_Slider_Adminhtml_Sm_SliderImageController extends Mage_Adminhtml_Contro
 			Mage::getSingleton('adminhtml/session')->addError("Failed to load image");
 			$this->_init()->renderLayout();
 		}
+	}
+
+	public function massDeleteAction() {
+		$ids = $this->getRequest()->getPost('massaction');
+
+		$connection = Mage::getSingleton('core/resource')->getConnection('core_write');
+		$session = Mage::getSingleton('adminhtml/session');
+
+		try {
+			$connection->beginTransaction();
+
+			$connection->delete(
+				Mage::getSingleton('core/resource')->getTableName('sm_slider/image'),
+				'`id` IN (' . implode(',', $ids) . ')'
+			);
+
+			$connection->commit();
+
+			$session->addSuccess('Deleted images successfully');
+		}
+		catch (Exception $ex) {
+			$connection->rollback();
+			$session->addError('Failed to delete images: ' . $ex->getMessage());
+		}
+
+		return $this->_redirectReferer();
+	}
+
+	public function massEnableAction() {
+		$ids = $this->getRequest()->getPost('massaction');
+
+		$connection = Mage::getSingleton('core/resource')->getConnection('core_write');
+		$session = Mage::getSingleton('adminhtml/session');
+
+		try {
+			$connection->beginTransaction();
+
+			$connection->update(
+				Mage::getSingleton('core/resource')->getTableName('sm_slider/image'),
+				array(
+					'is_active' => true
+				),
+				'`id` IN (' . implode(',', $ids) . ')'
+			);
+
+			$connection->commit();
+
+			$session->addSuccess('Enabled images successfully');
+		}
+		catch (Exception $ex) {
+			$connection->rollback();
+			$session->addError('Failed to enable images: ' . $ex->getMessage());
+		}
+
+		return $this->_redirectReferer();
+	}
+
+	public function massDisableAction() {
+		$ids = $this->getRequest()->getPost('massaction');
+
+		$connection = Mage::getSingleton('core/resource')->getConnection('core_write');
+		$session = Mage::getSingleton('adminhtml/session');
+
+		try {
+			$connection->beginTransaction();
+
+			$connection->update(
+				Mage::getSingleton('core/resource')->getTableName('sm_slider/image'),
+				array(
+					'is_active' => false
+				),
+				'`id` IN (' . implode(',', $ids) . ')'
+			);
+
+			$connection->commit();
+
+			$session->addSuccess('Enabled images successfully');
+		}
+		catch (Exception $ex) {
+			$connection->rollback();
+			$session->addError('Failed to enable images: ' . $ex->getMessage());
+		}
+
+		return $this->_redirectReferer();
 	}
 }

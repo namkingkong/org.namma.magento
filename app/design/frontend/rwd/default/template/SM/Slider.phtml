@@ -1,0 +1,49 @@
+<?php $activeSlider = $this->getActiveSlider() ?>
+
+<?php if ($activeSlider) : ?>
+
+	<div>
+		<a class="arrow-left" href="#"></a>
+		<a class="arrow-right" href="#"></a>
+		<div class="swiper-container" style="cursor: -webkit-grab;">
+			<div class="swiper-wrapper">
+				<?php foreach ($activeSlider->getImages() as $image) : ?>
+					<div class="swiper-slide">
+						<div class="content-slider">
+							<img src="<?= Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . "sm/slider/{$image->getSliderId()}/{$image->getId()}_{$image->getFilename()}" ?>">
+							<?php if ($image->getTitle()) : ?>
+								<h3 class="swiper-slider-title"><?= $image->getTitle() ?></h3>
+							<?php endif; ?>
+							<?php if ($image->getContent()) : ?>
+								<p class="swiper-slider-content"><?= $image->getContent() ?></p>
+							<?php endif; ?>
+						</div>
+					</div>
+				<?php endforeach; ?>
+		</div>
+		<div class="pagination">
+			<span class="swiper-pagination-switch"></span>
+			<span class="swiper-pagination-switch"></span>
+			<span class="swiper-pagination-switch"></span>
+		</div>
+	</div>
+
+	<script>
+		var mySwiper = new Swiper('.swiper-container',{
+			pagination: '.pagination',
+			loop: true,
+			grabCursor: true,
+			paginationClickable: true
+		})
+		$('.arrow-left').on('click', function(e){
+			e.preventDefault()
+			mySwiper.swipePrev()
+		})
+		$('.arrow-right').on('click', function(e){
+			e.preventDefault()
+			mySwiper.swipeNext()
+		})
+
+	</script>
+
+<?php endif; ?>

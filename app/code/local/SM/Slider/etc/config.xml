@@ -103,4 +103,15 @@
             </updates>
         </layout>
     </adminhtml>
+    <default>
+        <sm_slider>
+            <status>
+                <enabled>1</enabled>
+            </status>
+            <display>
+                <autoplay>1</autoplay>
+                <speed>2000</speed>
+            </display>
+        </sm_slider>
+    </default>
 </config>

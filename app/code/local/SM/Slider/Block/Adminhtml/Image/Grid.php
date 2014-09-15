@@ -27,6 +27,29 @@ class SM_Slider_Block_Adminhtml_Image_Grid extends Mage_Adminhtml_Block_Widget_G
 	}
 
 	protected function _prepareMassaction() {
+		parent::_prepareMassaction();
+
+		$this->setMassactionIdField('id');
+
+		$this->getMassactionBlock()
+			->addItem('remove', array(
+				'label' => $this->__('Remove Selected Images'),
+				'url'   => $this->getUrl('*/sm_sliderImage/massDelete')
+			));
+
+		$this->getMassactionBlock()
+			->addItem('enable', array(
+				'label' => $this->__('Enable'),
+				'url'   => $this->getUrl('*/sm_sliderImage/massEnable')
+			));
+
+		$this->getMassactionBlock()
+			->addItem('disable', array(
+				'label' => $this->__('Disable'),
+				'url'   => $this->getUrl('*/sm_sliderImage/massDisable')
+			));
+
+		return $this;
 	}
 
 	protected function _prepareColumns() {

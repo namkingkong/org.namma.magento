@@ -13,4 +13,10 @@ class SM_Slider_Model_Slider extends Mage_Core_Model_Abstract {
 		$this->_init('sm_slider/slider');
 	}
 
+	public function getImages() {
+		return Mage::getModel('sm_slider/image')
+			->getCollection()
+			->addFieldToFilter('slider_id', $this->getId())
+			->addFieldToFilter('is_active', true);
+	}
 }

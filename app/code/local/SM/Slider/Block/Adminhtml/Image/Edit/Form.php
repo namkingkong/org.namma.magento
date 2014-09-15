@@ -50,12 +50,22 @@ class SM_Slider_Block_Adminhtml_Image_Edit_Form extends Mage_Adminhtml_Block_Wid
 			// Set an hidden ID field
 			$fieldset->addField('id', 'hidden', array('name' => 'id'));
 
+			// Set a hidden slider ID field
+			$fieldset->addField('slider_id', 'hidden', array('name' => 'slider_id'));
+
 			// Show the uploaded image
 //			$fieldset->addField('image', 'image', array(
 //				'label'     => $this->__('Image'),
 //				'title'     => $this->__('Image'),
 //				'src'       => Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . "sm/slider/{$}"
 //			));
+
+			$fieldset->addType('thumbnail', 'SM_Slider_Block_Adminhtml_Image_Edit_Element_Thumbnail');
+
+			$fieldset->addField('filename', 'thumbnail', array(
+				'label'     => $this->__('Image'),
+				'title'     => $this->__('Image'),
+			));
 		}
 		else {
 			// Set an image-uploading field instead of showing any image
@@ -90,7 +100,7 @@ class SM_Slider_Block_Adminhtml_Image_Edit_Form extends Mage_Adminhtml_Block_Wid
 			'title'     => 'Is Active',
 			'required'  => false,
 			'onclick'   => 'this.value = this.checked ? 1 : 0;',
-			'checked'   => 'checked'
+			'checked'   => Mage::registry('sm_slider_image')->getIsActive() ? true : false
 		));
 
 		$form->setValues($model->getData());

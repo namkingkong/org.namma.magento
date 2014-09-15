@@ -23,6 +23,17 @@
                             </sm_slider>
                         </children>
                     </sm_module>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <sm_slider translate="title">
+                                        <title>SM Slider Configuration</title>
+                                    </sm_slider>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
                 </children>
             </admin>
         </resources>

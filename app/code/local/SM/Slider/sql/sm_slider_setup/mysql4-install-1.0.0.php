@@ -17,7 +17,6 @@ $this->run("
 	CREATE TABLE `{$sliderTableName}` (
 		`id`		INT				NOT NULL AUTO_INCREMENT,
 		`name`		VARCHAR(128)	NOT NULL,
-		`type`		VARCHAR(32)	NOT NULL,
 		`is_active`	BOOLEAN 		NOT NULL DEFAULT TRUE,
 		PRIMARY KEY (`id`)
 	);
