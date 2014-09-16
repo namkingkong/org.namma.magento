@@ -2,12 +2,14 @@
 
 <?php if ($activeSlider) : ?>
 
+	<?php $images = $activeSlider->getImages() ?>
+
 	<div>
 		<a class="arrow-left" href="#"></a>
 		<a class="arrow-right" href="#"></a>
 		<div class="swiper-container" style="cursor: -webkit-grab;">
 			<div class="swiper-wrapper">
-				<?php foreach ($activeSlider->getImages() as $image) : ?>
+				<?php foreach ($images as $image) : ?>
 					<div class="swiper-slide">
 						<div class="content-slider">
 							<img src="<?= Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . "sm/slider/{$image->getSliderId()}/{$image->getId()}_{$image->getFilename()}" ?>">
@@ -20,16 +22,20 @@
 						</div>
 					</div>
 				<?php endforeach; ?>
-		</div>
-		<div class="pagination">
-			<span class="swiper-pagination-switch"></span>
-			<span class="swiper-pagination-switch"></span>
-			<span class="swiper-pagination-switch"></span>
+			</div>
+			<div class="pagination">
+				<?php for ($i = 0; $i < $images->count(); ++$i) : ?>
+					<span class="swiper-pagination-switch"></span>
+				<?php endfor; ?>
+			</div>
 		</div>
 	</div>
 
 	<script>
 		var mySwiper = new Swiper('.swiper-container',{
+			autoplay: <?= Mage::getStoreConfig('sm_slider/display/autoplay') ?>,
+			speed: <?= Mage::getStoreConfig('sm_slider/display/speed') ?>,
+			mode: "<?= Mage::getStoreConfig('sm_slider/display/mode') ?>",
 			pagination: '.pagination',
 			loop: true,
 			grabCursor: true,
