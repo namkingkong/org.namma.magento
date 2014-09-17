@@ -24,4 +24,22 @@ class SM_Featured_Model_Source_FeaturedPlace extends Mage_Eav_Model_Entity_Attri
 		);
 	}
 
+	public function toOptionArray() {
+		return $this->getAllOptions();
+	}
+
+	public function toArray() {
+		$options = array();
+
+		foreach ($this->getAllOptions() as $node) {
+			$options[$node['value']] = $node['label'];
+		}
+
+		return $options;
+	}
+
+	public function getPlaceName($placeID) {
+		return $this->toArray()[$placeID];
+	}
+
 }

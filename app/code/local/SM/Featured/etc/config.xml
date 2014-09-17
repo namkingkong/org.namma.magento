@@ -10,13 +10,6 @@
             <sm_featured>
                 <class>SM_Featured_Block</class>
             </sm_featured>
-            <!--<adminhtml>-->
-                <!--<rewrite>-->
-                    <!--<catalog_product_grid>-->
-                        <!--SM_Featured_Block_Adminhtml_Catalog_Product_Grid-->
-                    <!--</catalog_product_grid>-->
-                <!--</rewrite>-->
-            <!--</adminhtml>-->
         </blocks>
         <helpers>
             <sm_featured>
@@ -41,6 +34,13 @@
             </sm_featured_setup>
         </resources>
     </global>
+    <frontend>
+        <layout>
+            <updates>
+                <file>SM/Featured.xml</file>
+            </updates>
+        </layout>
+    </frontend>
     <admin>
         <routers>
             <adminhtml>
@@ -57,11 +57,27 @@
             <adminhtml_catalog_product_grid_prepare_massaction>
                 <observers>
                     <admin_product_grid_add_massaction>
-                        <class>SM_Featured_Model_Observer_AdminhtmlObserver</class>
-                        <method>addCatalogProductGridMassAction</method>
+                        <class>SM_Featured_Model_Observer_Adminhtml_CatalogProductObserver</class>
+                        <method>addGridMassAction</method>
                     </admin_product_grid_add_massaction>
                 </observers>
             </adminhtml_catalog_product_grid_prepare_massaction>
+            <core_block_abstract_to_html_before>
+                <observers>
+                    <asdasdsad>
+                        <class>sm_featured/observer_adminhtml_catalogProductObserver</class>
+                        <method>beforeBlockHtml</method>
+                    </asdasdsad>
+                </observers>
+            </core_block_abstract_to_html_before>
+            <eav_collection_abstract_load_before>
+                <observers>
+                    <asdazxc>
+                        <class>sm_featured/observer_adminhtml_catalogProductObserver</class>
+                        <method>beforeCollectionLoad</method>
+                    </asdazxc>
+                </observers>
+            </eav_collection_abstract_load_before>
         </events>
     </adminhtml>
 </config>

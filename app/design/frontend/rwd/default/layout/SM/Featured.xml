@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<layout>
+    <cms_index_index>
+        <reference name="content">
+            <block type="sm_featured/featuredProductSlider"
+                   name="sm_website_featured_product_slider"
+                   template="SM/Featured/WebsiteFeaturedProduct.phtml"/>
+        </reference>
+    </cms_index_index>
+</layout>

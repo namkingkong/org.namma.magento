@@ -68,4 +68,15 @@ $this->addAttribute(
 	)
 );
 
+Mage::app()->getStore()->setId(Mage_Core_Model_App::ADMIN_STORE_ID);
+
+$products = Mage::getModel('catalog/product')->getCollection();
+
+foreach ($products as $product) {
+	$product->setData('is_featured', 0)
+		->getResource()->saveAttribute($product, 'is_featured');
+	$product->setData('featured_place', SM_Featured_Model_Source_FeaturedPlace::BOTH_VALUE)
+		->getResource()->saveAttribute($product, 'featured_place');
+}
+
 $this->endSetup();
