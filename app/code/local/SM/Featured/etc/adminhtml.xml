@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <catalog>
+            <children>
+                <sm_featured translate="title" module="sm_slider">
+                    <title>Manager Featured Product</title>
+                    <sort_order>1</sort_order>
+                    <action>adminhtml/featuredProduct/index</action>
+                </sm_featured>
+            </children>
+        </catalog>
+    </menu>
+    <!--<acl>-->
+        <!--<resources>-->
+            <!--<admin>-->
+                <!--<children>-->
+                    <!--<sm_module>-->
+                        <!--<title>SM Modules</title>-->
+                        <!--<sort_order>1</sort_order>-->
+                        <!--<children>-->
+                            <!--<sm_slider>-->
+                                <!--<title>SM Slider</title>-->
+                            <!--</sm_slider>-->
+                        <!--</children>-->
+                    <!--</sm_module>-->
+                    <!--<system>-->
+                        <!--<children>-->
+                            <!--<config>-->
+                                <!--<children>-->
+                                    <!--<sm_slider translate="title">-->
+                                        <!--<title>SM Slider Configuration</title>-->
+                                    <!--</sm_slider>-->
+                                <!--</children>-->
+                            <!--</config>-->
+                        <!--</children>-->
+                    <!--</system>-->
+                <!--</children>-->
+            <!--</admin>-->
+        <!--</resources>-->
+    <!--</acl>-->
+</config>
