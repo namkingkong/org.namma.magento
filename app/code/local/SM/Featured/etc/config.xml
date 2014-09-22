@@ -37,7 +37,9 @@
     <frontend>
         <layout>
             <updates>
-                <file>SM/Featured.xml</file>
+                <sm_featured>
+                    <file>SM/Featured.xml</file>
+                </sm_featured>
             </updates>
         </layout>
     </frontend>

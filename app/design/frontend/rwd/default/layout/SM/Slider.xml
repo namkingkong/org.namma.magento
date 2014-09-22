@@ -12,9 +12,10 @@
             </action>
         </reference>
         <reference name="content">
-            <action method="unsetChildren" ifconfig="sm_slider/status/enabled"/>
+            <!--<action method="unsetChildren" ifconfig="sm_slider/status/enabled"/>-->
             <block type="sm_slider/slider"
-                   name="sm_slider">
+                   name="sm_slider"
+                   before="-">
                 <action method="setTemplate" ifconfig="sm_slider/status/enabled">
                     <template>SM/Slider.phtml</template>
                 </action>

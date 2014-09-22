@@ -27,7 +27,7 @@
                         <children>
                             <config>
                                 <children>
-                                    <sm_slider translate="title">
+                                    <sm_slider translate="title" module="sm_slider">
                                         <title>SM Slider Configuration</title>
                                     </sm_slider>
                                 </children>

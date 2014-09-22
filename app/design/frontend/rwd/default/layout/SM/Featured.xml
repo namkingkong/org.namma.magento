@@ -1,5 +1,25 @@
 <?xml version="1.0"?>
 <layout>
+    <default>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>SM/swiper/idangero.swiper.css</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>SM/swiper/idangero.swiper.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>SM/css/Featured.css</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>SM/js/Featured.js</name>
+            </action>
+        </reference>
+    </default>
     <cms_index_index>
         <reference name="content">
             <block type="sm_featured/featuredProductSlider"
@@ -7,4 +27,11 @@
                    template="SM/Featured/WebsiteFeaturedProduct.phtml"/>
         </reference>
     </cms_index_index>
+    <catalog_category_view>
+        <reference name="content">
+            <block type="sm_featured/featuredProductSlider"
+                   name="sm_category_featured_product_slider"
+                   template="SM/Featured/CategoryFeaturedProduct.phtml"/>
+        </reference>
+    </catalog_category_view>
 </layout>
