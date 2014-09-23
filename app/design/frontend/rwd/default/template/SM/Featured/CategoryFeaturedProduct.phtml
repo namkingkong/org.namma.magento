@@ -1,4 +1,5 @@
-<?php $products = $this->getCategoryFeaturedProducts() ?>
+<?php $products = $this->getWebsiteFeaturedProducts(
+	Mage::getStoreConfig('sm_featured/display/category_maximum_quantity')) ?>
 
 <?php if ($products->count() > 0) : ?>
 	<h2 class="subtitle" style="padding:10px; border-top: solid 1px #d3d3d3; border-bottom: solid 1px #d3d3d3;">Featured Products</h2>
@@ -21,3 +22,16 @@
 		</div>
 	</div>
 <?php endif; ?>
+
+<script>
+	jQuery(function() {
+		var gallery = jQuery('.featured-products-swiper-container').swiper({
+			slidesPerView   : 'auto',
+			resizeReInit    : true,
+			keyboardControl : true,
+			grabCursor      : true,
+			autoplay        : "<?= Mage::getStoreConfig('sm_featured/display/autoplay') ?>",
+			speed           : "<?= Mage::getStoreConfig('sm_featured/display/speed') ?>"
+		});
+	});
+</script>

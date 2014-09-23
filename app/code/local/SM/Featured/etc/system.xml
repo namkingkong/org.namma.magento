@@ -42,7 +42,7 @@
                             <label>Home Page Maximum Quantity</label>
                             <sort_order>1</sort_order>
                             <frontend_type>text</frontend_type>
-                            <validate></validate>
+                            <validate>validate-greater-than-zero</validate>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
@@ -51,6 +51,7 @@
                             <label>Category Page Maximum Quantity</label>
                             <sort_order>1</sort_order>
                             <frontend_type>text</frontend_type>
+                            <validate>validate-greater-than-zero</validate>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
@@ -60,6 +61,7 @@
                             <comment>This is the autoplay interval (ms)</comment>
                             <sort_order>2</sort_order>
                             <frontend_type>text</frontend_type>
+                            <validate>validate-not-negative-number</validate>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
@@ -69,6 +71,7 @@
                             <comment>Movement speed (ms)</comment>
                             <sort_order>3</sort_order>
                             <frontend_type>text</frontend_type>
+                            <validate>validate-not-negative-number</validate>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
