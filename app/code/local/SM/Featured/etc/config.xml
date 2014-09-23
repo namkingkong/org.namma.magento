@@ -82,4 +82,17 @@
             </eav_collection_abstract_load_before>
         </events>
     </adminhtml>
+    <default>
+        <sm_featured>
+            <status>
+                <enabled>1</enabled>
+            </status>
+            <display>
+                <homepage_maximum_quantity>12</homepage_maximum_quantity>
+                <category_maximum_quantity>7</category_maximum_quantity>
+                <autoplay>0</autoplay>
+                <speed>200</speed>
+            </display>
+        </sm_featured>
+    </default>
 </config>

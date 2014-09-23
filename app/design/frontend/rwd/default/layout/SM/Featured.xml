@@ -14,24 +14,30 @@
                 <type>skin_css</type>
                 <name>SM/css/Featured.css</name>
             </action>
-            <action method="addItem">
-                <type>skin_js</type>
-                <name>SM/js/Featured.js</name>
-            </action>
+            <!--<action method="addItem">-->
+                <!--<type>skin_js</type>-->
+                <!--<name>SM/js/Featured.js</name>-->
+            <!--</action>-->
         </reference>
     </default>
     <cms_index_index>
         <reference name="content">
             <block type="sm_featured/featuredProductSlider"
-                   name="sm_website_featured_product_slider"
-                   template="SM/Featured/WebsiteFeaturedProduct.phtml"/>
+                   name="sm_website_featured_product_slider">
+                <action method="setTemplate" ifconfig="sm_featured/status/enabled">
+                    <template>SM/Featured/WebsiteFeaturedProduct.phtml</template>
+                </action>
+            </block>
         </reference>
     </cms_index_index>
     <catalog_category_view>
         <reference name="content">
             <block type="sm_featured/featuredProductSlider"
-                   name="sm_category_featured_product_slider"
-                   template="SM/Featured/CategoryFeaturedProduct.phtml"/>
+                   name="sm_category_featured_product_slider">
+                <action method="setTemplate" ifconfig="sm_featured/status/enabled">
+                    <template>SM/Featured/CategoryFeaturedProduct.phtml</template>
+                </action>
+            </block>
         </reference>
     </catalog_category_view>
 </layout>

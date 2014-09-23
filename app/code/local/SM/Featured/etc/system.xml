@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<config>
+    <sections>
+        <sm_featured translate="label" module="sm_featured">
+            <label>Featured Products Configuration</label>
+            <tab>sm_modules</tab>
+            <frontend_type>text</frontend_type>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <status translate="label" module="sm_featured">
+                    <label>Status Configuration</label>
+                    <sort_order>1</sort_order>
+                    <frontend_type>text</frontend_type>
+                    <expanded>1</expanded>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label" module="sm_featured">
+                            <label>Enabled</label>
+                            <sort_order>1</sort_order>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                    </fields>
+                </status>
+                <display translate="label" module="sm_featured">
+                    <label>Display Configuration</label>
+                    <sort_order>2</sort_order>
+                    <expanded>1</expanded>
+                    <frontend_type>text</frontend_type>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <homepage_maximum_quantity translate="label" module="sm_featured">
+                            <label>Home Page Maximum Quantity</label>
+                            <sort_order>1</sort_order>
+                            <frontend_type>text</frontend_type>
+                            <validate></validate>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </homepage_maximum_quantity>
+                        <category_maximum_quantity translate="label" module="sm_featured">
+                            <label>Category Page Maximum Quantity</label>
+                            <sort_order>1</sort_order>
+                            <frontend_type>text</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </category_maximum_quantity>
+                        <autoplay translate="label" module="sm_featured">
+                            <label>Autoplay</label>
+                            <comment>This is the autoplay interval (ms)</comment>
+                            <sort_order>2</sort_order>
+                            <frontend_type>text</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </autoplay>
+                        <speed>
+                            <label>Speed</label>
+                            <comment>Movement speed (ms)</comment>
+                            <sort_order>3</sort_order>
+                            <frontend_type>text</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </speed>
+                    </fields>
+                </display>
+            </groups>
+        </sm_featured>
+    </sections>
+</config>
