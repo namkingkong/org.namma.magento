@@ -1,5 +1,5 @@
 <?php $products = $this->getBestSellerProducts(
-	Mage::getStoreConfig('sm_bestseller/display/maximum_quantity_homepage')) ?>
+	Mage::getStoreConfig('sm_bestseller/display/maximum_quantity_category')) ?>
 
 <?php if ($products->count() > 0) : ?>
 	<h2 class="subtitle">Best Sellers</h2>

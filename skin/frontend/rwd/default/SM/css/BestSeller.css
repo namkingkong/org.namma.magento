@@ -1,0 +1,27 @@
+.bestseller-swiper-container {
+    overflow: hidden;
+    height: 300px;
+}
+.bestseller-swiper-container .swiper-slide {
+    max-width:  180px !important;
+}
+.bestseller-swiper-container .swiper-slide+.swiper-slide {
+    padding-left: 15px;
+}
+.bestseller-swiper-container .swiper-slide img {
+    position: relative;
+    max-width: 100%;
+    border: solid 1px #d3d3d3;
+    border-radius: 2px;
+    padding: 10px;
+}
+.bestseller-swiper-container .swiper-pagination-switch {
+    background-color: #d3d3d3;
+    border: none !important;
+}
+.bestseller-swiper-container .swiper-active-switch {
+    background-color: rgb(0,126,209) !important;
+}
+.bestseller-swiper-container .swiper-visible-switch {
+    background-color: rgba(0,126,209,0.4);
+}

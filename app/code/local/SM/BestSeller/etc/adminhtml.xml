@@ -1,3 +1,22 @@
 <?xml version="1.0"?>
 <config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <sm_bestseller translate="title" module="sm_bestseller">
+                                        <title>SM Best Seller Configuration</title>
+                                    </sm_bestseller>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
 </config>

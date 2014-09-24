@@ -31,4 +31,18 @@
             </updates>
         </layout>
     </frontend>
+    <default>
+        <sm_bestseller>
+            <status>
+                <enabled_homepage>1</enabled_homepage>
+                <enabled_category>1</enabled_category>
+            </status>
+            <display>
+                <maximum_quantity_homepage>12</maximum_quantity_homepage>
+                <maximum_quantity_category>7</maximum_quantity_category>
+                <autoplay>0</autoplay>
+                <speed>200</speed>
+            </display>
+        </sm_bestseller>
+    </default>
 </config>

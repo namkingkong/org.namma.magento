@@ -1,12 +1,33 @@
 <?xml version="1.0"?>
-<config>
+<layout>
+    <default>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>SM/swiper/idangero.swiper.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>SM/css/BestSeller.css</name>
+            </action>
+        </reference>
+    </default>
     <cms_index_index>
         <reference name="content">
-            <block type="sm_bestSeller/bestSeller" name="sm_bestseller_homepage">
-                <action metho="setTemplate">
+            <block type="sm_bestseller/bestSeller" name="sm_bestseller_homepage">
+                <action method="setTemplate" ifconfig="sm_bestseller/status/enabled_homepage">
                     <template>SM/BestSeller/WebsiteBestSellerProducts.phtml</template>
                 </action>
             </block>
         </reference>
     </cms_index_index>
-</config>
+    <catalog_category_view>
+        <reference name="content">
+            <block type="sm_bestseller/bestSeller" name="sm_bestseller_category">
+                <action method="setTemplate" ifconfig="sm_bestseller/status/enabled_category">
+                    <template>SM/BestSeller/CategoryBestSellerProducts.phtml</template>
+                </action>
+            </block>
+        </reference>
+    </catalog_category_view>
+</layout>

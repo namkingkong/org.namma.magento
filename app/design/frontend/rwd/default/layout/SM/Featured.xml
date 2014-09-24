@@ -3,10 +3,6 @@
     <default>
         <reference name="head">
             <action method="addItem">
-                <type>skin_css</type>
-                <name>SM/swiper/idangero.swiper.css</name>
-            </action>
-            <action method="addItem">
                 <type>skin_js</type>
                 <name>SM/swiper/idangero.swiper.js</name>
             </action>
@@ -14,10 +10,6 @@
                 <type>skin_css</type>
                 <name>SM/css/Featured.css</name>
             </action>
-            <!--<action method="addItem">-->
-                <!--<type>skin_js</type>-->
-                <!--<name>SM/js/Featured.js</name>-->
-            <!--</action>-->
         </reference>
     </default>
     <cms_index_index>
