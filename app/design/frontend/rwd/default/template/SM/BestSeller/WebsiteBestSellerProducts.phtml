@@ -1,0 +1,7 @@
+<?php $products = $this->getBestSellerProducts ?>
+
+<ul>
+    <?php foreach ($products as $product) : ?>
+        <li><?= $product->getName() ?></li>
+    <?php endforeach ?>
+</ul>

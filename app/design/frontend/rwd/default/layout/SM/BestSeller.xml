@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+    <cms_index_index>
+        <reference name="content">
+            <block type="sm_bestSeller/bestSeller" name="sm_bestseller_homepage">
+                <action metho="setTemplate">
+                    <template>SM/BestSeller/WebsiteBestSellerProducts.phtml</template>
+                </action>
+            </block>
+        </reference>
+    </cms_index_index>
+</config>
