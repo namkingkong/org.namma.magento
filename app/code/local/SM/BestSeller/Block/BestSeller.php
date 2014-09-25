@@ -7,21 +7,22 @@
  */
 class SM_BestSeller_Block_BestSeller extends Mage_Core_Block_Template {
 
-    public function getBestSellerProducts() {
+    public function getBestSellerProducts($maximumQty = null) {
         $storeId = Mage::app()->getStore()->getId();
+
+	    $periodOfTime = Mage::getStoreConfig('sm_bestseller/display/period_of_time');
+	    $fromDate = (new Zend_Date())->subDay($periodOfTime);
 
         $products = Mage::getResourceModel('reports/product_collection')
             ->addOrderedQty()
-//            ->addAttributeToSelect('*')
             ->addAttributeToSelect(array('name', 'price', 'small_image'))
             ->setStoreId($storeId)
             ->addStoreFilter($storeId)
             ->setOrder('ordered_qty', 'desc');
 
+	    // Add category filter if currently in a category page
 	    if (($currentCategory = Mage::registry('current_category')) !== null) {
-		    $products
-		        ->joinField('category_id', 'catalog/category_product', 'category_id', 'product_id = entity_id')
-			    ->addAttributeToFilter('category_id', array('in', $this->_getAllSubCategories($currentCategory->getId())));
+		    $products->addCategoryFilter($currentCategory);
 	    }
 
         // Filter collection with product status
@@ -31,7 +32,9 @@ class SM_BestSeller_Block_BestSeller extends Mage_Core_Block_Template {
         Mage::getSingleton('catalog/product_visibility')->addVisibleInCatalogFilterToCollection($products);
 
         // Set limit quantity from system configuration
-	    $products->setPageSize(10)->setCurPage(1);
+	    if ($maximumQty !== null) {
+		    $products->setPageSize($maximumQty)->setCurPage(1);
+	    }
 
         return $products;
     }

@@ -47,6 +47,16 @@
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
                     <fields>
+                        <period_of_time translate="label comment">
+                            <label>Period of time</label>
+                            <sort_order>0</sort_order>
+                            <comment>In days unit</comment>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-greater-than-zero</validate>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </period_of_time>
                         <maximum_quantity_homepage translate="label comment" module="sm_bestseller">
                             <label>Maximum Products Displayed on Home Page</label>
                             <sort_order>1</sort_order>

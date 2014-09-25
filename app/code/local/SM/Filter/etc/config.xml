@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <version>1.0.0</version>
+    </modules>
+    <global>
+        <helpers>
+            <class>SM_Filter_Helper</class>
+        </helpers>
+        <blocks>
+            <class>SM_Filter_Block</class>
+        </blocks>
+    </global>
+</config>

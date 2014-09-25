@@ -38,6 +38,7 @@
                 <enabled_category>1</enabled_category>
             </status>
             <display>
+                <period_of_time>30</period_of_time>
                 <maximum_quantity_homepage>12</maximum_quantity_homepage>
                 <maximum_quantity_category>7</maximum_quantity_category>
                 <autoplay>0</autoplay>
