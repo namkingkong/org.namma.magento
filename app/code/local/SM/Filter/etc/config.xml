@@ -1,14 +1,43 @@
 <?xml version="1.0"?>
 <config>
     <modules>
-        <version>1.0.0</version>
+        <SM_Filter>
+            <version>1.0.0</version>
+        </SM_Filter>
     </modules>
     <global>
         <helpers>
-            <class>SM_Filter_Helper</class>
+            <sm_filter>
+                <class>SM_Filter_Helper</class>
+            </sm_filter>
         </helpers>
         <blocks>
-            <class>SM_Filter_Block</class>
+            <sm_filter>
+                <class>SM_Filter_Block</class>
+            </sm_filter>
         </blocks>
+        <models>
+            <sm_filter>
+                <class>SM_Filter_Model</class>
+            </sm_filter>
+        </models>
+        <resources>
+            <sm_filter_setup>
+                <setup>
+                    <module>SM_Filter</module>
+                    <class>Mage_Eav_Model_Entity_Setup</class>
+                </setup>
+            </sm_filter_setup>
+        </resources>
+        <events>
+            <adminhtml_block_html_before>
+                <observers>
+                    <formfield_add>
+                        <class>SM_Filter_Model_Observer_Adminhtml_CatalogAttributeObserver</class>
+                        <method>addAttributeManagementFormField</method>
+                    </formfield_add>
+                </observers>
+            </adminhtml_block_html_before>
+        </events>
     </global>
 </config>
