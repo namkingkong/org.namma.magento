@@ -1,0 +1,19 @@
+<?php
+$displayTypeCode = $this->getAttributeModel()->getFilterDisplayType();
+
+// If filter-display-type is not set yet, see it as link-type
+if (empty($displayTypeCode)) $displayTypeCode = SM_Filter_Model_Source_FilterDisplayTypeOptions::LINK_VALUE;
+
+switch ($displayTypeCode) {
+	case SM_Filter_Model_Source_FilterDisplayTypeOptions::LINK_VALUE :
+		require('FilterTypes/link.phtml');
+		break;
+	case SM_Filter_Model_Source_FilterDisplayTypeOptions::CHECKBOX_VALUE :
+		require('FilterTypes/checkbox.phtml');
+		break;
+	case SM_Filter_Model_Source_FilterDisplayTypeOptions::SELECT_VALUE :
+		require('FilterTypes/select.phtml');
+		break;
+	case SM_Filter_Model_Source_FilterDisplayTypeOptions::COLOR_VALUE :
+		require('FilterTypes/color.phtml');
+}

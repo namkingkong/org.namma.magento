@@ -19,6 +19,15 @@ class SM_Filter_Model_Source_FilterDisplayTypeOptions extends Mage_Eav_Model_Ent
 	const COLOR_VALUE       = 4;
 	const COLOR_LABEL       = 'Color';
 
+	public function getDisplayTypeName($value) {
+		foreach ($this->getAllOptions() as $option) {
+			if ($option['value'] === $value) {
+				return $option['label'];
+			}
+		}
+		return null;
+	}
+
 	public function getAllOptions() {
 		$helper = Mage::helper('sm_filter');
 

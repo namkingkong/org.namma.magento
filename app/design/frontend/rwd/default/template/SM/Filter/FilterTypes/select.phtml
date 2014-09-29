@@ -1,0 +1,9 @@
+<select class="layered-nav-select">
+	<option>--- Select an item ---</option>
+	<?php foreach ($this->getItems() as $_item) : ?>
+		<option value="<?= $this->urlEscape($_item->getUrl()) ?>">
+			<?= $_item->getLabel() ?>
+			(<?= $_item->getCount() ?>)
+		</option>
+	<?php endforeach; ?>
+</select>

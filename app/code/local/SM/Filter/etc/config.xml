@@ -30,14 +30,23 @@
             </sm_filter_setup>
         </resources>
         <events>
-            <adminhtml_block_html_before>
+            <adminhtml_catalog_product_attribute_edit_prepare_form>
                 <observers>
                     <formfield_add>
                         <class>SM_Filter_Model_Observer_Adminhtml_CatalogAttributeObserver</class>
                         <method>addAttributeManagementFormField</method>
                     </formfield_add>
                 </observers>
-            </adminhtml_block_html_before>
+            </adminhtml_catalog_product_attribute_edit_prepare_form>
         </events>
     </global>
+    <frontend>
+        <layout>
+            <updates>
+                <sm_filter>
+                    <file>SM/Filter.xml</file>
+                </sm_filter>
+            </updates>
+        </layout>
+    </frontend>
 </config>

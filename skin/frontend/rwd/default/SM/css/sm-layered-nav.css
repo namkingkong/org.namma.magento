@@ -1,0 +1,38 @@
+.block-layered-nav .label {
+    color: #000000;
+}
+
+#narrow-by-list dt {
+    background-color: #3399cc;
+    border: solid 1px #3399cc;
+    color: #ffffff;
+}
+#narrow-by-list dd {
+    border: solid 1px #3399cc;
+}
+
+.layered-nav-link,
+.layered-nav-checkbox,
+.layered-nav-checkbox-label,
+.layered-nav-select,
+.layered-nav-color {
+    cursor: pointer;
+}
+
+.layered-nav-color {
+    display: inline-block;
+    padding: 5px;
+    border-radius: 2px;
+    margin-right: 5px;
+    border: solid 1px #3399cc;
+}
+
+.layered-nav-checkbox-label {
+    display: block;
+    padding: 3px 6px;
+    border-radius: 2px;
+}
+.layered-nav-checkbox-label:hover {
+    background-color: #3399cc;
+    color: #ffffff;
+}

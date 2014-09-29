@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<layout>
+    <catalog_category_layered translate="label">
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>SM/js/sm-layered-nav.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>SM/css/sm-layered-nav.css</name>
+            </action>
+        </reference>
+        <reference name="catalog.leftnav">
+            <action method="setTemplate">
+                <template>SM/Filter/view.phtml</template>
+            </action>
+        </reference>
+    </catalog_category_layered>
+</layout>
