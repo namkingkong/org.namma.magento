@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <sm_module>
+            <children>
+                <sm_productLabel translate="title" module="sm_productLabel">
+                    <title>Manage Product Labels</title>
+                    <action>adminhtml/productLabel/index</action>
+                </sm_productLabel>
+            </children>
+        </sm_module>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <chilren>
+                    <sm_module>
+                        <children>
+                            <sm_productLabel translate="title" module="sm_productLabel">
+                                <title>Manage Product Labels</title>
+                            </sm_productLabel>
+                        </children>
+                    </sm_module>
+                </chilren>
+            </admin>
+        </resources>
+    </acl>
+</config>

@@ -1,16 +1,5 @@
 <?xml version="1.0"?>
 <config>
-    <menu>
-        <catalog>
-            <children>
-                <sm_featured translate="title" module="sm_slider">
-                    <title>Manager Featured Product</title>
-                    <sort_order>1</sort_order>
-                    <action>adminhtml/featuredProduct/index</action>
-                </sm_featured>
-            </children>
-        </catalog>
-    </menu>
     <acl>
         <resources>
             <admin>

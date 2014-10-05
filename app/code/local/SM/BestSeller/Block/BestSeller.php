@@ -40,7 +40,9 @@ class SM_BestSeller_Block_BestSeller extends Mage_Core_Block_Template {
     }
 
 	public function getCurrentCurrencySymbol() {
-		return Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol();
+		return Mage::app()->getLocale()->currency(
+			Mage::app()->getStore()->getCurrentCurrencyCode()
+		)->getSymbol();
 	}
 
 	private function _getAllSubCategories($rootId) {

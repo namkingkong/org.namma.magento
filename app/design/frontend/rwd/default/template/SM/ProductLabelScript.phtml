@@ -1,0 +1,37 @@
+<?php $product = $this->getProduct() ?>
+
+<?php if ($labelId = $product->getData('sm_productlabel_label_id')) : ?>
+	<?php $label = Mage::getModel('sm_productLabel/label')->load($labelId) ?>
+	<?php $labelImageSrc = Mage::getUrl('media') . "sm/label/{$label->getFilename()}" ?>
+	<script>
+		$j(function() {
+			var img = $j('<img>')
+				.attr('src', '<?= $labelImageSrc ?>')
+				.addClass('sm-label')
+				.addClass('<?= $label->getPosition() ?>')
+				.appendTo('.product-image-gallery');
+
+			img.css({
+				"max-width" : img.parent().width() / 5
+			});
+		});
+	</script>
+	<style>
+		.sm-label {
+			position: absolute;
+			/*max-width: 100px !important;*/
+		}
+		.sm-label-top {
+			top: 0;
+		}
+		.sm-label-bottom {
+			bottom: 0;
+		}
+		.sm-label-left {
+			left: 0;
+		}
+		.sm-label-right {
+			right: 0;
+		}
+	</style>
+<?php endif ?>

@@ -113,10 +113,6 @@ class SM_Slider_Adminhtml_Sm_SliderController extends Mage_Adminhtml_Controller_
 			{
 				$adminHtmlSession->addError($ex->getMessage());
 			}
-			catch (Mage_Core_Exception $ex)
-			{
-				$adminHtmlSession->addError($this->__('An error occured while saving the slider'));
-			}
 
 			/*
 			 * These 2 lines of code is only executed when there is exception

@@ -7,8 +7,6 @@
  */
 $this->startSetup();
 
-$tableName = null;
-
 $tableName = $this->getTable('sm_megamenu/item');
 
 $result = $this->run("

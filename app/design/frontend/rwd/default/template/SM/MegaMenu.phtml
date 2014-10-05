@@ -15,7 +15,7 @@
 					<?= $item->getName() ?>
 				</span>
 				<div class="sm-megamenu-panel">
-					<?= Mage::getModel('cms/block')->load($item->getBlockId())->getContent() ?>
+					<?= $this->getLayout()->createBlock('cms/block')->setBlockId($item->getBlockId())->toHtml() ?>
 				</div>
 			</li>
 		<?php endforeach; ?>

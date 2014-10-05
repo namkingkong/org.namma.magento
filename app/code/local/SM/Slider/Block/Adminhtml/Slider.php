@@ -15,7 +15,7 @@ class SM_Slider_Block_Adminhtml_Slider extends Mage_Adminhtml_Block_Widget_Grid_
 		/*
 		 * This is the second half part of Block URI
 		 * ("controller" here does not mean a MVC Controller,
-		 * it's Block Controller, or we can call a Container")
+		 * it's Block Controller, or we can call it a Container")
 		 */
 		$this->_controller = 'adminhtml_slider';
 
