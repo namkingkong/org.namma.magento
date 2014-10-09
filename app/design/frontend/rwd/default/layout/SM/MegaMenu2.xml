@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<layout>
+    <default>
+        <reference name="header">
+            <block type="sm_megamenu2/frontend_menu"
+                   name="sm_megamenu_menu"
+                   template="SM/MegaMenu2/Menu.phtml"/>
+
+            <action method="setChild">
+                <alias>topMenu</alias>
+                <block>sm_megamenu_menu</block>
+            </action>
+        </reference>
+    </default>
+</layout>

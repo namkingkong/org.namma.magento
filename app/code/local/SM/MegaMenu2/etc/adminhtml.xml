@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <sm_module>
+            <children>
+                <sm_megamenu2 translate="title" module="sm_megamenu2">
+                    <title>Manage Mega Menu v2</title>
+                    <action>adminhtml/megaMenu2/index</action>
+                </sm_megamenu2>
+            </children>
+        </sm_module>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <sm_module>
+                        <children>
+                            <sm_megamenu2 translate="title" module="sm_megamenu2">
+                                <title>Manage Mega Menu v2</title>
+                            </sm_megamenu2>
+                        </children>
+                    </sm_module>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>
